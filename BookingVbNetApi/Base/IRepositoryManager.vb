@@ -3,9 +3,9 @@ Namespace Base
     Public Interface IRepositoryManager
         ReadOnly Property Booking As IBookingRepository
 
-        ReadOnly Property Borde As IBookingRepository
+        ReadOnly Property Borde As IBordeRepository
 
-        ReadOnly Property Boex As IBookingRepository
+        ReadOnly Property Boex As IBoexRepoository
 
         ReadOnly Property Soco As IBookingRepository
 

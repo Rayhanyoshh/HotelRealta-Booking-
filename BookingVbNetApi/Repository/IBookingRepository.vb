@@ -7,7 +7,7 @@ Namespace Repository
 
         Function CreateNewOrder(bookingOrders As Booking_orders) As Booking_orders
 
-        Function DeleteRegion(ByVal id As Int32) As Int32
+        Function DeleteBookingByID(ByVal id As Int32) As Int32
 
         Function UpdateBookingById(id As Integer,
                                           orderDateValue As String,

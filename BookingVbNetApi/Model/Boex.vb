@@ -1,6 +1,6 @@
 ﻿Namespace Model
 
-    Public Class Border
+    Public Class Boex
         Private _boex_id As Integer
         Private _boex_price As Double
         Private _boex_qty As Integer
@@ -31,15 +31,7 @@
             Me.Boex_prit_id = boex_prit_id
         End Sub
 
-        Public Overrides Function ToString() As String
-            Return $"boex_id             : {Boex_id} 
-boex_price          : {Boex_price}
-boex_qty            : {Boex_qty}
-boex_subtotal       : {Boex_subtotal}
-boex_measure_unit   : {Boex_measure_unit}
-boex_borde_id       : {Boex_borde_id}
-boex_prit_id        : {Boex_prit_id}"
-        End Function
+
 
         Public Property Boex_id As Integer
             Get
@@ -103,6 +95,17 @@ boex_prit_id        : {Boex_prit_id}"
                 _boex_prit_id = value
             End Set
         End Property
+
+        Public Overrides Function ToString() As String
+            Return $"
+boex_id             : {Boex_id} 
+boex_price          : {Boex_price}
+boex_qty            : {Boex_qty}
+boex_subtotal       : {Boex_subtotal}
+boex_measure_unit   : {Boex_measure_unit}
+boex_borde_id       : {Boex_borde_id}
+boex_prit_id        : {Boex_prit_id}"
+        End Function
     End Class
 
 End Namespace

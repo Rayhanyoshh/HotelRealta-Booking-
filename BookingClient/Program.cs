@@ -17,12 +17,12 @@ namespace BookingClient
             IBookingVbApi _bookingVbApi = new BookingVbApi(Configuration.GetConnectionString("HotelRealtaDS"));
 
             ////FIND ALL BOOKING
-            var listOrder = _bookingVbApi.RepositoryManager.Booking.FindAllBookingOrders();
-            foreach (var item in listOrder)
-            {
-                Console.WriteLine($"{item}");
-            }
-            Console.WriteLine();
+            //var listOrder = _bookingVbApi.RepositoryManager.Booking.FindAllBookingOrders();
+            //foreach (var item in listOrder)
+            //{
+            //    Console.WriteLine($"{item}");
+            //}
+            //Console.WriteLine();
 
             //FIND BOOKING BY ID
             //Console.Write("Enter Booking Order Id : ");
@@ -96,7 +96,7 @@ namespace BookingClient
             ////Delete Row
             //Console.WriteLine("Input Row number to delete : ");
             //var inputDeleteRow = Convert.ToInt32(Console.ReadLine());
-            //var rowDelete = _bookingVbApi.RepositoryManager.Booking.DeleteRegion(inputDeleteRow);
+            //var rowDelete = _bookingVbApi.RepositoryManager.Booking.DeleteBookingByID(inputDeleteRow);
             //Console.WriteLine($"Order ID {inputDeleteRow} sudah terhapus");
 
 
@@ -126,7 +126,7 @@ namespace BookingClient
             //Console.Write("Input Order Type : ");
             //var inputOrderType = Console.ReadLine();
             //Console.Write("Input Cardnumber of Payment : ");
-            //var inputCardnumber =Console.ReadLine();
+            //var inputCardnumber = Console.ReadLine();
             //Console.Write("Input Member Type : ");
             //var inputMemberType = Console.ReadLine();
             //Console.Write("Input Order Status : ");
@@ -155,7 +155,97 @@ namespace BookingClient
             //}
 
             //FIND ALL BORDE
-            //var AllboorList = _bookingVbApi.RepositoryManager.Borde.
+            //var AllboorList = _bookingVbApi.RepositoryManager.Borde.FindAllBorde();
+            //foreach (var item in AllboorList)
+            //{
+            //    Console.WriteLine($"{item}");
+            //}
+            //Console.WriteLine();
+
+
+            //FIND ALL BOEX
+            //var AllBoexList = _bookingVbApi.RepositoryManager.Boex.FindAllBookingOrderDetailExtra();
+            //foreach (var item in AllBoexList)
+            //{
+            //    Console.WriteLine($"{item}");
+            //}
+            //Console.WriteLine();
+
+            //FIND BOEX BY ID
+            //Console.Write("Enter Booking Order Detail Extra Id : ");
+            //var enterNum = Convert.ToInt32(Console.ReadLine());
+            //var BoexById = _bookingVbApi.RepositoryManager.Boex.FindBoexByID(enterNum);
+            //Console.WriteLine($"Boor ID has Already Found = {BoexById}" +
+            //    $"");
+
+
+            //CREATE NEW BOEX
+            //Console.Write("Input Boex ID : ");
+            //var inputboexID = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Input Boex Price : ");
+            //var inputboexPrice = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Input Boex Quantity : ");
+            //var inputboexQty = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Input Boex Subtotal Price : ");
+            //var inputboexSubtotal = Convert.ToDouble(Console.ReadLine());
+            //Console.Write("Input Boex Measure Unit : ");
+            //var inputboexMeasureUnit = Console.ReadLine();
+            //Console.Write("Input Boex Borde Id : ");
+            //var inputboexBordeId = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Input Boex Price Item ID : ");
+            //var inputboexPritId = Convert.ToInt32(Console.ReadLine());
+            //Console.WriteLine();
+            //var NewBoex = _bookingVbApi.RepositoryManager.Boex.CreateNewBoex(new BookingVbNetApi.Model.Boex
+            //{
+            //    Boex_id = inputboexID,
+            //    Boex_price = inputboexPrice,
+            //    Boex_qty = inputboexQty,
+            //    Boex_subtotal = inputboexSubtotal,
+            //    Boex_measure_unit = inputboexMeasureUnit,
+            //    Boex_borde_id = inputboexBordeId,
+            //    Boex_prit_id = inputboexPritId
+            //});
+            //Console.WriteLine($"" +
+            //    $"New Boex has Already done with ID : {NewBoex}" +
+            //    $"");
+
+
+            //DELETE BOEX ROW
+            //Console.Write("Input Row number to delete : ");
+            //var inputDeleteRow = Convert.ToInt32(Console.ReadLine());
+            //var rowDelete = _bookingVbApi.RepositoryManager.Boex.DeleteBoex(inputDeleteRow);
+            //Console.WriteLine($"Order ID {inputDeleteRow} sudah terhapus");
+
+
+
+            //UPDATE BOEX BY ID
+            Console.Write("Input Boex ID to Update : ");
+            var inputboexID = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Update Boex Price : ");
+            var inputboexPrice = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Update Boex Quantity : ");
+            var inputboexQty = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Update Boex Subtotal Price : ");
+            var inputboexSubtotal = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Update Boex Measure Unit : ");
+            var inputboexMeasureUnit = Console.ReadLine();
+            Console.Write("Update Boex Borde Id : ");
+            var inputboexBordeId = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Update Boex Price Item ID : ");
+            var inputboexPritId = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+            var updateBoexByID = _bookingVbApi.RepositoryManager.Boex.UpdateBoexByID(inputboexID,inputboexPrice,inputboexQty,inputboexSubtotal,inputboexMeasureUnit,inputboexBordeId,inputboexPritId,true);
+            var boexUpdateResult = _bookingVbApi.RepositoryManager.Boex.FindBoexByID(inputboexID);
+            Console.WriteLine($"Booking Order Detail Extra dengan ID = {inputboexID} telah diUpdate");
+            Console.WriteLine();
+            Console.WriteLine(boexUpdateResult);
+
+
+
+
+
+
+
 
 
             static void BuildConfig()

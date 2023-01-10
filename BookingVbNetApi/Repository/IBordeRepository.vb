@@ -11,8 +11,8 @@ Namespace Repository
 
         Function UpdateBordeBySp(borde_id As Integer, borde_boor_id As Integer, borde_checkin As String,
                                    borde_checkouot As String, borde_adults As Integer, borde_kids As Integer,
-                                   borde_price As Double, borde_extra As Double, borde_discount As Double,
-                                   borde_tax As Double, borde_subtotal As Double, borde_faci_id As Integer,
+                                   borde_price As Double, borde_extra As Double, borde_discount As Decimal,
+                                   borde_tax As Decimal, borde_subtotal As Double, borde_faci_id As Integer,
                                    Optional showCommand As Boolean = False) As Boolean
     End Interface
 

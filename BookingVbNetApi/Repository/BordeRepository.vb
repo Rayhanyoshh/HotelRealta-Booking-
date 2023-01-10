@@ -5,6 +5,7 @@ Imports BookingVbNetApi.Model
 Namespace Repository
     Public Class BordeRepository
         Implements IBordeRepository
+
         Private _context As IRepositoryContext
 
         Public Sub New(context As IRepositoryContext)
@@ -14,7 +15,7 @@ Namespace Repository
         Public Function FindAllBorde() As List(Of Borde) Implements IBordeRepository.FindAllBorde
             Dim AllbordeList = New List(Of Borde)
 
-            Dim stmt = "SELECT * FROM booking_order_detail"
+            Dim stmt = "SELECT borde_boor_id, borde_id, borde_checkin, borde_checkout, borde_adults, borde_kids, borde_price, borde_extra, borde_discount, borde_tax, borde_subtotal, borde_faci_id FROM Booking.booking_order_detail"
 
             Using conn As New SqlConnection With {.ConnectionString = _context.GetConnectionString}
                 Using cmd As New SqlCommand With {.Connection = conn, .CommandText = stmt}
@@ -28,14 +29,14 @@ Namespace Repository
                                 .Borde_id = If(Reader.IsDBNull(1), "", Reader.GetInt32(1)),
                                 .Borde_checkin = If(Reader.IsDBNull(2), "", Reader.GetDateTime(2).ToLongDateString),
                                 .Borde_checkout = If(Reader.IsDBNull(3), "", Reader.GetDateTime(3).ToLongDateString),
-                                .Borde_adults = If(Reader.IsDBNull(4), 0, Reader.GetInt16(4)),
-                                .Borde_kids = If(Reader.IsDBNull(5), 0, Reader.GetInt16(5)),
-                                .Borde_price = If(Reader.IsDBNull(6), 0, Reader.GetInt16(6)),
-                                .Borde_extra = If(Reader.IsDBNull(7), 0, Reader.GetInt16(7)),
-                                .Borde_discount = If(Reader.IsDBNull(8), 0, Reader.GetSqlDecimal(8)),
-                                .Borde_tax = If(Reader.IsDBNull(9), 0, Reader.GetSqlDecimal(9)),
-                                .Borde_subtotal = If(Reader.IsDBNull(10), 0, Reader.GetInt16(10)),
-                                .Borde_faci_id = If(Reader.IsDBNull(11), 0, Reader.GetInt16(11))
+                                .Borde_adults = If(Reader.IsDBNull(4), 0, Reader.GetInt32(4)),
+                                .Borde_kids = If(Reader.IsDBNull(5), 0, Reader.GetInt32(5)),
+                                .Borde_price = If(Reader.IsDBNull(6), 0, Reader.GetInt32(6)),
+                                .Borde_extra = If(Reader.IsDBNull(7), 0, Reader.GetInt32(7)),
+                                .Borde_discount = If(Reader.IsDBNull(8), 0, Reader.GetDecimal(8)),
+                                .Borde_tax = If(Reader.IsDBNull(9), 0, Reader.GetDecimal(9)),
+                                .Borde_subtotal = If(Reader.IsDBNull(10), 0, Reader.GetInt32(10)),
+                                .Borde_faci_id = If(Reader.IsDBNull(11), 0, Reader.GetInt32(11))
                             })
                         End While
                         Reader.Close()
@@ -60,7 +61,8 @@ Namespace Repository
             Throw New NotImplementedException()
         End Function
 
-        Public Function UpdateBordeBySp(borde_id As Integer, borde_boor_id As Integer, borde_checkin As String, borde_checkouot As String, borde_adults As Integer, borde_kids As Integer, borde_price As Double, borde_extra As Double, borde_discount As Double, borde_tax As Double, borde_subtotal As Double, borde_faci_id As Integer, Optional showCommand As Boolean = False) As Boolean Implements IBordeRepository.UpdateBordeBySp
+
+        Public Function UpdateBordeBySp(borde_id As Integer, borde_boor_id As Integer, borde_checkin As String, borde_checkouot As String, borde_adults As Integer, borde_kids As Integer, borde_price As Double, borde_extra As Double, borde_discount As Decimal, borde_tax As Decimal, borde_subtotal As Double, borde_faci_id As Integer, Optional showCommand As Boolean = False) As Boolean Implements IBordeRepository.UpdateBordeBySp
             Throw New NotImplementedException()
         End Function
     End Class

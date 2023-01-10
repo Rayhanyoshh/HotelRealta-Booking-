@@ -12,14 +12,6 @@ Namespace Repository
             _context = context
         End Sub
 
-        Private Shared Function NoNull(ByVal checkValue As Object, ByVal returnIfNull As Object) As Object
-            If checkValue Is DBNull.Value Then
-                Return returnIfNull
-            Else
-                Return checkValue
-            End If
-        End Function
-
         Public Function FindAllBookingOrders() As List(Of Booking_orders) Implements IBookingRepository.FindAllBookingOrders
             Dim bookingList = New List(Of Booking_orders)
 
@@ -47,7 +39,7 @@ Namespace Repository
                                 .Boor_total_guest = If(Reader.IsDBNull(5), 0, Reader.GetInt16(5)),
                                 .Boor_discount = If(Reader.IsDBNull(6), 0, Reader.GetDecimal(6)),
                                 .Boor_total_tax = If(Reader.IsDBNull(7), 0, Reader.GetSqlDecimal(7)),
-                                .Boor_total_amount = If(Reader.IsDBNull(8), 0, Reader.GetDecimal(8)),
+                                .Boor_total_amount = If(Reader.IsDBNull(8), 0, Reader.GetDouble(8)),
                                 .Boor_down_payment = If(Reader.IsDBNull(9), 0, Reader.GetDecimal(9)),
                                 .Boor_pay_type = If(Reader.IsDBNull(10), "", Reader.GetString(10)),
                                 .Boor_is_paid = If(Reader.IsDBNull(11), "", Reader.GetString(11)),
@@ -157,14 +149,13 @@ Namespace Repository
                         con.Close()
                     Catch ex As Exception
                         Console.WriteLine(ex.Message)
-
                     End Try
                 End Using
             End Using
             Return boor
         End Function
 
-        Public Function DeleteRegion(id As Integer) As Integer Implements IBookingRepository.DeleteRegion
+        Public Function DeleteBookingByID(id As Integer) As Integer Implements IBookingRepository.DeleteBookingByID
             Dim rowEffect As Int32 = 0
 
             Dim stmt As String = "delete from Booking.booking_orders where boor_id =@id"
@@ -185,7 +176,7 @@ Namespace Repository
             Return rowEffect
         End Function
 
- 
+
         Public Function UpdateBookingById(id As Integer, orderDateValue As String, arrivalDateValue As String, totalRoomvalue As Integer, totalGuestValue As Integer, discountValue As Decimal, totalTaxValue As Decimal, totalAmountValue As Double, DpValue As Integer, payTypeValue As String, isPaidValue As String, orderTypeValue As String, cardnumberValue As Integer, memberTypeValue As String, statusValue As String, userIdValue As Integer, hotelIdValue As Integer, Optional showCommand As Boolean = False) As Boolean Implements IBookingRepository.UpdateBookingById
             Dim updatebooking As New Booking_orders()
 

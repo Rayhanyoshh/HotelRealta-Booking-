@@ -6,6 +6,8 @@ Namespace Base
 
         Private _bookingRepository As IBookingRepository
         Private _bordeRepository As IBordeRepository
+        Private _boexRepository As IBoexRepoository
+
 
         Private ReadOnly _repositoryContext As IRepositoryContext
 
@@ -23,7 +25,7 @@ Namespace Base
             End Get
         End Property
 
-        Public ReadOnly Property Borde As IBookingRepository Implements IRepositoryManager.Borde
+        Public ReadOnly Property Borde As IBordeRepository Implements IRepositoryManager.Borde
             Get
                 If _bordeRepository Is Nothing Then
                     _bordeRepository = New BordeRepository(_repositoryContext)
@@ -32,11 +34,7 @@ Namespace Base
             End Get
         End Property
 
-        Public ReadOnly Property Boex As IBookingRepository Implements IRepositoryManager.Boex
-            Get
-                Throw New NotImplementedException()
-            End Get
-        End Property
+
 
         Public ReadOnly Property Soco As IBookingRepository Implements IRepositoryManager.Soco
             Get
@@ -53,6 +51,16 @@ Namespace Base
         Public ReadOnly Property Usbr As IBookingRepository Implements IRepositoryManager.Usbr
             Get
                 Throw New NotImplementedException()
+            End Get
+        End Property
+
+        Public ReadOnly Property Boex As IBoexRepoository Implements IRepositoryManager.Boex
+            Get
+                If _boexRepository Is Nothing Then
+                    _boexRepository = New BoexRepository(_repositoryContext)
+                End If
+                Return _boexRepository
+
             End Get
         End Property
     End Class
