@@ -12,6 +12,20 @@
         Private _spof_max_qty As Integer
         Private _spof_modified_date As String
 
+        Public Overrides Function ToString() As String
+            Return $"
+ spof_id               : {Spof_id} 
+ spof_name             : {Spof_name} 
+ spof_description      : {Spof_description}
+ spof_type             : {Spof_type}
+ spof_discount         : {Spof_discount} 
+ spof_start_date       : {Spof_start_date} 
+ spof_end_date         : {Spof_end_date}
+ spof_min_qty          : {Spof_min_qty}
+ spof_max_qty          : {Spof_max_qty}
+ spof_modified_date    : {Spof_modified_date}"
+        End Function
+
         Public Sub New()
         End Sub
 
@@ -40,18 +54,6 @@
             Me.Spof_modified_date = spof_modified_date
         End Sub
 
-        Public Overrides Function ToString() As String
-            Return $" _spof_id               : {Spof_id} 
- _spof_name             : {Spof_name} 
- _spof_description      : {Spof_description}
- _spof_type             : {Spof_type}
- _spof_discount         : {Spof_discount} 
- _spof_start_date       : {Spof_start_date} 
- _spof_end_date         : {Spof_end_date}
- _spof_min_qty          : {Spof_min_qty}
- _spof_max_qty          : {Spof_max_qty}
- _spof_modified_date    : {Spof_modified_date}"
-        End Function
 
         Public Property Spof_id As Integer
             Get
@@ -143,5 +145,7 @@
             End Set
         End Property
     End Class
+
+
 
 End Namespace

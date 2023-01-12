@@ -7,6 +7,7 @@ Namespace Base
         Private _bookingRepository As IBookingRepository
         Private _bordeRepository As IBordeRepository
         Private _boexRepository As IBoexRepoository
+        Private _spofRepository As ISpofRepository
 
 
         Private ReadOnly _repositoryContext As IRepositoryContext
@@ -42,9 +43,12 @@ Namespace Base
             End Get
         End Property
 
-        Public ReadOnly Property Spof As IBookingRepository Implements IRepositoryManager.Spof
+        Public ReadOnly Property Spof As ISpofRepository Implements IRepositoryManager.Spof
             Get
-                Throw New NotImplementedException()
+                If _spofRepository Is Nothing Then
+                    _spofRepository = New SpofRepository(_repositoryContext)
+                End If
+                Return _spofRepository
             End Get
         End Property
 

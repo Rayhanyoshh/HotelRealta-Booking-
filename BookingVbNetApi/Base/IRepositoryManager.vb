@@ -9,7 +9,7 @@ Namespace Base
 
         ReadOnly Property Soco As IBookingRepository
 
-        ReadOnly Property Spof As IBookingRepository
+        ReadOnly Property Spof As ISpofRepository
 
         ReadOnly Property Usbr As IBookingRepository
 

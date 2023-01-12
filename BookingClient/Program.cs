@@ -219,28 +219,119 @@ namespace BookingClient
 
 
             //UPDATE BOEX BY ID
-            Console.Write("Input Boex ID to Update : ");
-            var inputboexID = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Update Boex Price : ");
-            var inputboexPrice = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Update Boex Quantity : ");
-            var inputboexQty = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Update Boex Subtotal Price : ");
-            var inputboexSubtotal = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Update Boex Measure Unit : ");
-            var inputboexMeasureUnit = Console.ReadLine();
-            Console.Write("Update Boex Borde Id : ");
-            var inputboexBordeId = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Update Boex Price Item ID : ");
-            var inputboexPritId = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine();
-            var updateBoexByID = _bookingVbApi.RepositoryManager.Boex.UpdateBoexByID(inputboexID,inputboexPrice,inputboexQty,inputboexSubtotal,inputboexMeasureUnit,inputboexBordeId,inputboexPritId,true);
-            var boexUpdateResult = _bookingVbApi.RepositoryManager.Boex.FindBoexByID(inputboexID);
-            Console.WriteLine($"Booking Order Detail Extra dengan ID = {inputboexID} telah diUpdate");
-            Console.WriteLine();
-            Console.WriteLine(boexUpdateResult);
+            //Console.Write("Input Boex ID to Update : ");
+            //var inputboexID = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Update Boex Price : ");
+            //var inputboexPrice = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Update Boex Quantity : ");
+            //var inputboexQty = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Update Boex Subtotal Price : ");
+            //var inputboexSubtotal = Convert.ToDouble(Console.ReadLine());
+            //Console.Write("Update Boex Measure Unit : ");
+            //var inputboexMeasureUnit = Console.ReadLine();
+            //Console.Write("Update Boex Borde Id : ");
+            //var inputboexBordeId = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Update Boex Price Item ID : ");
+            //var inputboexPritId = Convert.ToInt32(Console.ReadLine());
+            //Console.WriteLine();
+            //var updateBoexByID = _bookingVbApi.RepositoryManager.Boex.UpdateBoexByID(inputboexID,inputboexPrice,inputboexQty,inputboexSubtotal,inputboexMeasureUnit,inputboexBordeId,inputboexPritId,true);
+            //var boexUpdateResult = _bookingVbApi.RepositoryManager.Boex.FindBoexByID(inputboexID);
+            //Console.WriteLine($"Booking Order Detail Extra dengan ID = {inputboexID} telah diUpdate");
+            //Console.WriteLine();
+            //Console.WriteLine(boexUpdateResult);
+
+            //ALL SPECIAL OFFERS LIST
+            //var AllSpofList = _bookingVbApi.RepositoryManager.Spof.FindAllSpecialOffers();
+            //foreach (var item in AllSpofList)
+            //{
+            //    Console.WriteLine($"{item}");
+            //}
+            //Console.WriteLine();
+
+            //SPECIAL OFFERS BY ID
+            //Console.Write("Enter Special Offers Id : ");
+            //var enterNum = Convert.ToInt32(Console.ReadLine());
+            //var SpofById = _bookingVbApi.RepositoryManager.Spof.FindSpecialOffersById(enterNum);
+            //Console.WriteLine($"Boor ID has Already Found = {SpofById}" +
+            //    $"");
 
 
+            // CREATE NEW SPECIAL OFFERS
+            //Console.WriteLine("-------------CREATE NEW SPECIAL OFFER------------------");
+            //Console.Write("Input Spof ID : ");
+            //var inputSpofID = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Input Spof Name : ");
+            //var inputspofName = Console.ReadLine();
+            //Console.Write("Input Spof Description : ");
+            //var inputspofDesc = Console.ReadLine();
+            //Console.Write("Input Special Offers Type : ");
+            //var inputspofType = Console.ReadLine();
+            //Console.Write("Input Spof Discount : ");
+            //var inputspofDiscount = Convert.ToDouble(Console.ReadLine());
+            //Console.Write("Input Spof Start Date : ");
+            //var inputspofStartDate = Console.ReadLine();
+            //Console.Write("Input Spof End Date : ");
+            //var inputspofEndDate = Console.ReadLine();
+            //Console.Write("Input Spof Min Order :");
+            //var inputspofMinQty = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Input Spof Max Order : ");
+            //var inputspofMaxQty = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Input Spof Modified Date : ");
+            //Console.WriteLine("---------------------------------------------------------");
+            //var inputspofModifiedDate = Console.ReadLine();
+            //var NewSpof = _bookingVbApi.RepositoryManager.Spof.CreateNewSpecialOffers(new BookingVbNetApi.Model.Spof
+            //{
+            //    Spof_id = inputSpofID,
+            //    Spof_name = inputspofName,
+            //    Spof_description = inputspofDesc,
+            //    Spof_type = inputspofType,
+            //    Spof_discount = inputspofDiscount,
+            //    Spof_start_date = inputspofStartDate,
+            //    Spof_end_date = inputspofEndDate,
+            //    Spof_min_qty = inputspofMinQty,
+            //    Spof_max_qty = inputspofMaxQty,
+            //    Spof_modified_date = inputspofModifiedDate
+            //});
+            //Console.WriteLine($"" +
+            //    $"New Boex has Already done with ID : {NewSpof}" +
+            //    $"");
+
+
+            // DELETE SPOF BY ID
+            //Console.WriteLine("--------DELETE SPECIAL OFFERS----------");
+            //Console.Write("Input Special Offer Id to delete : ");
+            //var inputDeleteRow = Convert.ToInt32(Console.ReadLine());
+            //var rowDelete = _bookingVbApi.RepositoryManager.Spof.DeleteSpecialOffersByID(inputDeleteRow);
+            //Console.WriteLine($"Order ID {inputDeleteRow} sudah terhapus");
+
+
+            //UPDATE SPOF BY ID
+            Console.Write("Input Spof ID to Update : ");
+            var inputSpofId = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Update Spof Name: ");
+            var inputSpofName = Console.ReadLine();
+            Console.Write("Update Spof Description : ");
+            var inputSpofDescription = Console.ReadLine();
+            Console.Write("Update Spof Type : ");
+            var inputSpofType = Console.ReadLine();
+            Console.Write("Update Spof Discount : ");
+            var inputspofDiscount = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Update Spof Start Date : ");
+            var inputspofStartDate = Console.ReadLine();
+            Console.Write("Update Spof End Date : ");
+            var inputspofEndDate = Console.ReadLine();
+            Console.Write("Update Spof Min Qty : ");
+            var inputSpofMinQty = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Update Spof Max Qty : ");
+            var inputspofMaxQty = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Update Spof Modified Date : ");
+            var inputspofModDate = Console.ReadLine();
+            Console.WriteLine();
+            var updateSpofId = _bookingVbApi.RepositoryManager.Spof.UpdateSpecialOffersById(inputSpofId, inputSpofName, inputSpofDescription, inputSpofType, inputspofDiscount, inputspofStartDate, inputspofEndDate, inputSpofMinQty, inputspofMaxQty, inputspofModDate, true);
+            var spofUpdateResult = _bookingVbApi.RepositoryManager.Spof.FindSpecialOffersById(inputSpofId);
+            Console.WriteLine($"Booking Order Detail Extra dengan ID = {inputSpofId} telah diUpdate");
+            Console.WriteLine();
+            Console.WriteLine(spofUpdateResult);
 
 
 
